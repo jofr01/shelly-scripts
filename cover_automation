@@ -1,0 +1,29 @@
+/*
+// web API calls
+// define the API URL
+const apiUrl = 'https://api.agify.io?name=johannes';
+function processHttpResponse(res, error_code, error) {
+  if (error_code != 0) {
+    // process error
+    print("Error: ", error_code);
+  } else {
+    // process result
+    let resObj = JSON.parse(res.body);
+    print("Response: ");
+    print("Age: ", resObj.age);
+  }
+}
+Shelly.call("HTTP.GET", {url: apiUrl}, processHttpResponse);
+*/
+
+// read device status
+function printStatus(result) {
+  print("Status: ")
+  print(result)
+}
+
+Shelly.call("Sys.GetStatus", null, printStatus);
+Shelly.call("Cover.GetStatus", {id: 0}, printStatus);
+
+// move cover
+//Shelly.call("Cover.GoToPosition", {id: 0, pos: 60});
